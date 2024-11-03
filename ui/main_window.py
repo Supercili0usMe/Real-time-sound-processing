@@ -112,6 +112,7 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
+    # Проверка запуска GUI
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()

@@ -18,7 +18,8 @@ python main.py
 ```
 ## Usage
 Main window looks like this:
-![settings tab](Images\settings_tab.png)
+
+![settings tab](Images/Settings_tab.png)
 
 There are 4 buttons in **settings** tab (настройки):
 - **Start** (Старт) - starts the audio stream and audio processing
@@ -31,6 +32,7 @@ There are 4 buttons in **settings** tab (настройки):
 
 
 ![graph tab](Images/graphs_tab.png)
+
 Second tab **Graphs** (Графики) contains 2 graphs:
 - **Waveform** (Волновой сигнал) - shows the waveform of input audio signal
 - **Frequency spectrum** (Спектр частот) - shows the frequency spectrum of input audio signal
@@ -38,5 +40,6 @@ Second tab **Graphs** (Графики) contains 2 graphs:
 If you choose one of the filters, it shows cutoff frequency which you can change in **settings** tab, like this:
 
 ![cutoff frequency](Images/cutoff_freqs.png)
+
 In that case, the lower frequency for band stop filter is 1000 Hz, and the higher frequency is 2000 Hz.
 

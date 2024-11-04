@@ -24,6 +24,15 @@ class AudioProcessor(QtWidgets.QMainWindow, Ui_MainWindow):
         self.signal_filter = SignalFilter()
         self.current_filter_type = None
 
+        # Set initial visibility
+        self.txt_low_freq.setVisible(False)
+        self.txt_high_freq.setVisible(False)
+        self.spin_freq_low.setVisible(False)
+        self.spin_freq_high.setVisible(False)
+
+        # Set default filter selection
+        self.btn_no_filt.setChecked(True)
+
     def setup_plots(self):
         """Configure plot widgets and their settings"""
         # Create new plot widgets
@@ -116,17 +125,35 @@ class AudioProcessor(QtWidgets.QMainWindow, Ui_MainWindow):
         self.visualizer.update_plots(data)
 
     def update_filter(self):
-        """Update current filter based on selected radio button"""
+        """Update current filter and control visibility based on selected radio button"""
+        # Update filter type
         if self.btn_no_filt.isChecked():
             self.current_filter_type = None
+            self.txt_low_freq.setVisible(False)
+            self.spin_freq_low.setVisible(False)
+            self.txt_high_freq.setVisible(False)
+            self.spin_freq_high.setVisible(False)
+            
         elif self.btn_low_pass.isChecked():
             self.current_filter_type = "lowpass"
+            self.txt_low_freq.setVisible(True)
+            self.spin_freq_low.setVisible(True)
+            self.txt_high_freq.setVisible(False)
+            self.spin_freq_high.setVisible(False)
+            
         elif self.btn_high_pass.isChecked():
             self.current_filter_type = "highpass"
-        elif self.btn_band_pass.isChecked():
-            self.current_filter_type = "bandpass"
-        elif self.btn_band_stop.isChecked():
-            self.current_filter_type = "bandstop"
+            self.txt_low_freq.setVisible(False)
+            self.spin_freq_low.setVisible(False)
+            self.txt_high_freq.setVisible(True)
+            self.spin_freq_high.setVisible(True)
+            
+        elif self.btn_band_pass.isChecked() or self.btn_band_stop.isChecked():
+            self.current_filter_type = "bandpass" if self.btn_band_pass.isChecked() else "bandstop"
+            self.txt_low_freq.setVisible(True)
+            self.spin_freq_low.setVisible(True)
+            self.txt_high_freq.setVisible(True)
+            self.spin_freq_high.setVisible(True)
 
 if __name__ == '__main__':
     import sys

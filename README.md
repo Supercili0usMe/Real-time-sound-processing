@@ -7,10 +7,7 @@ Mini app for audio filtering in real-time using butterworth filter.
 # Clone repository
 git clone https://github.com/Supercili0usMe/Real-time-sound-processing.git
 
-# activate virtual environment
-source venv/Scripts/activate
-
-# Requirements if you don't have them or use venv
+# Requirements if you don't have them
 pip install -r requirements.txt
 
 # Run
